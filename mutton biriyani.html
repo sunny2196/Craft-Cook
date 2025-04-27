@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabadi Biryani - Craft & Cook</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+         :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --background-color: #1A1A2E;
+            --text-color: #FFFFFF;
+            --accent-color: #FFD700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: rgba(26, 26, 46, 0.8);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(255, 107, 107, 0.3));
+        }
+        
+        .recipe-title {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .recipe-title h1 {
+            font-size: 4.5rem;
+            background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .recipe-title .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+        
+        .recipe-image {
+            flex: 1;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .recipe-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .recipe-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .recipe-details {
+            display: flex;
+            margin-top: 50px;
+            gap: 50px;
+        }
+        
+        .ingredients,
+        .process {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .ingredients-list,
+        .process-steps {
+            list-style-type: none;
+        }
+        
+        .ingredients-list li,
+        .process-steps li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(78, 205, 196, 0.1);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .ingredients-list li:hover,
+        .process-steps li:hover {
+            background-color: rgba(78, 205, 196, 0.2);
+        }
+        
+        .video-section {
+            margin-top: 50px;
+            text-align: center;
+            padding: 50px 0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 768px) {
+            .recipe-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .recipe-title,
+            .recipe-image {
+                max-width: 100%;
+                padding-right: 0;
+            }
+            .recipe-details {
+                flex-direction: column;
+            }
+            .recipe-title h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar container">
+        <div class="logo">Craft & Cook</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#ingredients">Ingredients</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="https://www.youtube.com/shorts/3FxL-39r2WU?feature=share">Video Guide</a></li>
+        </ul>
+    </nav>
+
+    <section class="recipe-header container">
+        <div class="recipe-title">
+            <h1>Hyderabadi Mutton Biryani</h1>
+            <p class="subtitle">A Royal Culinary Journey of Flavors and Traditions</p>
+            <div class="recipe-meta">
+                <p>🕒 Prep Time: 30 mins | 🔥 Cook Time: 2 hours | 🍽️ Serves: 4-6</p>
+            </div>
+        </div>
+        <div class="recipe-image">
+            <img src="https://img.freepik.com/free-photo/gourmet-biryani-with-saffron-rice-chicken-generated-by-ai_188544-39093.jpg" alt="Hyderabadi Biryani">
+        </div>
+    </section>
+
+    <section class="recipe-details container">
+        <div id="ingredients" class="ingredients">
+            <h2 class="section-title">Ingredients</h2>
+            <ul class="ingredients-list">
+                <li>500g mutton (bone-in)</li>
+                <li>½ cup yogurt</li>
+                <li>1 tbsp ginger-garlic paste</li>
+                <li>1 tsp red chili powder</li>
+                <li>½ tsp turmeric powder</li>
+                <li>1 tsp garam masala</li>
+                <li>1 tsp salt</li>
+                <li>1 tbsp lemon juice</li>
+                <li>1 tbsp mustard oil (optional)</li>
+                <li>2 cups basmati rice (soaked for 30 minutes)</li>
+                <li>4 cups water</li>
+                <li>2 bay leaves</li>
+                <li>2-3 green cardamoms</li>
+                <li>1-inch cinnamon stick</li>
+                <li>3-4 cloves</li>
+                <li>1 tsp salt</li>
+                <li>2 tbsp ghee or oil</li>
+                <li>1 large onion (thinly sliced)</li>
+                <li>2 tomatoes (chopped)</li>
+                <li>1 tbsp ginger-garlic paste</li>
+                <li>1 green chili (slit)</li>
+                <li>1 tsp red chili powder</li>
+                <li>½ tsp turmeric powder</li>
+                <li>1 tsp coriander powder</li>
+                <li>1 tsp cumin powder</li>
+                <li>½ tsp garam masala</li>
+                <li>¼ cup milk (with a pinch of saffron soaked)</li>
+                <li>2 tbsp chopped coriander leaves</li>
+                <li>2 tbsp chopped mint leaves</li>
+                <li>1 tbsp kewra or rose water (optional)</li>
+
+        </div>
+        <div id="process" class="process">
+            <h2 class="section-title">Cooking Process</h2>
+            <ol class="process-steps">
+                <li><b>Step 1: Marinate the Mutton (Minimum 2 Hours or Overnight)</b>
+                    <p> In a bowl, mix mutton, yogurt, ginger-garlic paste, red chili powder, turmeric powder, garam masala, salt, lemon juice, and mustard oil. Cover and let it marinate in the refrigerator for at least 2 hours (overnight is best for tender
+                        meat).
+                    </p>
+                </li>
+                <li><b>Step 2: Cook the Rice</b>
+                    <p> Rinse 2 cups basmati rice and soak it for 30 minutes. Boil 4 cups water in a large pot. Add bay leaves, cardamoms, cinnamon, cloves, and salt. Add soaked rice and cook until 70-80% done (it should still have a bite). Drain and set
+                        aside.
+                    </p>
+                </li>
+                <li><b>Step 3: Prepare the Biryani Masala</b>
+                    <p> Heat 2 tbsp ghee/oil in a large pot. Add sliced onions and fry until golden brown (caramelized). Set aside some for garnishing. Add ginger-garlic paste and cook for 1 minute until fragrant. Add chopped tomatoes and cook until soft.
+                        Add red chili powder, turmeric, coriander, cumin, and salt. Cook for a few minutes. Add the marinated mutton and cook on medium heat until the oil separates. Add ½ cup water, cover, and simmer for 40-50 minutes (or pressure cook
+                        for 4-5 whistles) until the mutton is tender.
+                    </p>
+                </li>
+                <li><b>Step 4: Layering the Biryani</b>
+                    <p> In the same pot with cooked mutton, add a layer of half the rice. Sprinkle fried onions, coriander leaves, mint leaves, and saffron milk. Add the remaining rice on top and drizzle ghee, kewra/rose water for aroma.
+                    </p>
+                </li>
+                <li><b>Step 5: Dum Cooking (Final Cooking)</b>
+                    <p> Cover the pot with a tight lid or seal with dough. Cook on low heat (dum) for 20-25 minutes to let the flavors infuse. Turn off the heat and let it rest for 10 minutes before opening.
+                    </p>
+                </li>
+                <li><b>Step 6: Serve & Enjoy!</b>
+                    <p> Gently mix the layers while serving. Garnish with reserved fried onions, mint, and coriander. Serve hot with raita or salan.
+                    </p>
+                </li>
+                <b><p>Enjoy your delicious Hyderabadi Mutton Biryani!</p></b>
+
+            </ol>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <div class="container">
+            <h2 class="section-title">Cooking Video Guide</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3FxL-39r2WU" title="Biryani Cooking Guide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

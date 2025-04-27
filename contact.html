@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Craft & Cook</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+         :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --background-color: #1A1A2E;
+            --text-color: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            background: linear-gradient(to right, var(--text-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-section {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+        
+        .contact-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-info {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-details div {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--background-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            padding: 50px;
+            background: rgba(26, 26, 46, 0.9);
+        }
+        
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        /* New styles for message list */
+        
+        #messageList {
+            margin-top: 30px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .message-item {
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar container">
+        <div class="logo">Craft & Cook</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#recipes">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you! Reach out for any inquiries about our recipes, collaborations, or culinary adventures.</p>
+
+                <div class="contact-details">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>AMRITA VISHWA VIDHYAPEETHAM</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8978027188</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact-kaliyugiheart@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <h2>Contact Form</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+
+                <div id="messageList">
+                    <h3>Saved Messages</h3>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function checkVisibility() {
+            const contactContainer = document.querySelector('.contact-container');
+
+            const triggerBottom = window.innerHeight / 5 * 4;
+            const contactContainerTop = contactContainer.getBoundingClientRect().top;
+
+            if (contactContainerTop < triggerBottom) {
+                contactContainer.classList.add('visible');
+            }
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+
+
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+
+            const messageData = {
+                name: name,
+                email: email,
+                message: message,
+                timestamp: new Date().toISOString()
+            };
+
+            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            messages.push(messageData);
+
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+
+            displayMessages();
+
+            alert('Message saved successfully!');
+            this.reset();
+        });
+
+        // Function to display saved messages
+        function displayMessages() {
+            const messageList = document.getElementById('messageList');
+            const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+
+            // Clear existing messages
+            messageList.innerHTML = '<h3>Saved Messages</h3>';
+
+            // Display messages in reverse order (newest first)
+            messages.reverse().forEach((msg, index) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message-item');
+                messageDiv.innerHTML = `
+                    <strong>From:</strong> ${msg.name} (${msg.email})<br>
+                    <strong>Sent:</strong> ${new Date(msg.timestamp).toLocaleString()}<br>
+                    <p>${msg.message}</p>
+                    <button onclick="deleteMessage(${messages.length - index - 1})">Delete</button>
+                `;
+                messageList.appendChild(messageDiv);
+            });
+        }
+
+        // Function to delete a specific message
+        function deleteMessage(index) {
+            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            messages.splice(index, 1);
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+            displayMessages();
+        }
+
+        // Display messages on page load
+        window.addEventListener('load', displayMessages);
+    </script>
+</body>
+
+</html>
